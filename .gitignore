@@ -1,7 +1,6 @@
 __pycache__
 *.out
 .vscode
-misc
 fake
 data
 result/*

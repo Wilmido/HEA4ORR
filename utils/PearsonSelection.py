@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns	
     
-from scipy.stats import pearsonr
+# from scipy.stats import pearsonr
 
 def feature_selection(data):
     data = np.array(data,dtype=float).reshape(-1,9)

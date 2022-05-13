@@ -1,0 +1,7 @@
+* SHAP
+numpy
+pandas
+seaborn
+matplotlib
+scikit-learn
+pytorch 1.8.1

@@ -71,7 +71,7 @@ if __name__ == '__main__':
                     show=False)
     fig=plt.gcf()
     # fig.savefig(f'result/summary.pdf', format='pdf',bbox_inches='tight', dpi=1200)
-    fig.savefig(f'result/Shapley/summary1.svg',bbox_inches='tight', dpi=1200)
+    fig.savefig(f'result/Shapley/summary.svg',bbox_inches='tight', dpi=1200)
 
     shap.force_plot(base_value=e.expected_value,
                 shap_values=shap_values[:10],
@@ -80,7 +80,7 @@ if __name__ == '__main__':
                 out_names='abosrb energy',
                 text_rotation=30,
                 # matplotlib=True, show=False).savefig(f'result/low_plot.pdf', format='pdf',bbox_inches='tight', dpi=1200)
-                matplotlib=True, show=False).savefig(f'result/Shapley/low_plot1.svg',bbox_inches='tight', dpi=1200)
+                matplotlib=True, show=False).savefig(f'result/Shapley/low_plot.svg',bbox_inches='tight', dpi=1200)
     
 
     shap.force_plot(base_value=e.expected_value,
@@ -90,7 +90,7 @@ if __name__ == '__main__':
                 out_names='abosrb energy',
                 text_rotation=30,
                 # matplotlib=True, show=False).savefig(f'result/high_plot.pdf', format='pdf',bbox_inches='tight', dpi=1200)
-                matplotlib=True, show=False).savefig(f'result/Shapley/high_plot1.svg',bbox_inches='tight', dpi=1200)
+                matplotlib=True, show=False).savefig(f'result/Shapley/high_plot.svg',bbox_inches='tight', dpi=1200)
 
 
     
