@@ -50,11 +50,10 @@ After build up the dataset with 9 features, you should use Pearson correlation c
 ```
 cd utils
 python PearsonSelection.py
-python data_augment.py
 ```
 <a href="utils/PearsonSelection.py">`PearsonSelection.py`</a> use Pearson correlation coefficient to drop out highly related features.
 
-<a href="utils/data_augment.py.py">`data_augment.py`</a> use $x^2$$x^3$$$$$
+
 
 The result will be like:
 <img src="HEA4ORR/misc/Pearson_value.svg" width = "600" height = "450" alt="Pearson_value" />
@@ -87,6 +86,16 @@ Visualize the data, and the features processed by the model.
 ```
 python t_SNE.py
 ```
+
+## Feature engineering
+### Data augment
+```
+python data_augment.py
+```
+use $x^2$、$x^3$、$\sqrt{x}$、$log(1+x)$ basic functions to nonlinear feature transformation.And use $\frac{1}{x}$ for double feature number. At last, there is 90 features in datasets.
+
+###Genetic algrithm
+
 
 ## Generate HEAs
 You can switch the mode to choose whether to train the regression model. The result of loss plot demonstrates that the training process of GAN is not good :(
