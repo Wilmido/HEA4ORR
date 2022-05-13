@@ -196,29 +196,4 @@ if __name__ == '__main__':
 
         plt.show()
 
-
-"""
-#! 理想情况下，正常的Generator的loss曲线应该是不断往0靠近的下降的抛物线
-#! 而 Discriminator 的loss曲线应该是在0附近震荡。 
-
-#? 现在的情况就是discriminator的loss曲线出现震荡，认为可能是discriminator太强导致的。
-使用低的C_lambda
-
-优先训练Discriminator
-有研究认为Batch Normalization对于Generator有负面作用
-一般都认为Batch Normalization对于Discriminator有积极作用
-
-在GAN中尽量避免使用池化层MaxPool，AvgPool。使用Leaky-ReLU代替ReLU
-
-1.更大的kernel，更多的filter
-
-#= 不要early stopping
-当Discriminator的loss接近0时，Generator就很难学到任何东西了，就需要终止训练。
-
-#! 这里考虑minmaxscaler而不是standardsclaer是因为这里的数据点分布0比较多。而且Generator最后一层的
-#! 输出激活函数是tanh, 限制最后生成的样本是在0，1。
-
-使用了全新的模型结构后，discriminator的结构存在优化的空间
-
-"""
         

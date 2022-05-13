@@ -1,6 +1,4 @@
 import os
-os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
-
 import torch
 
 import numpy as np
@@ -10,8 +8,8 @@ from model.networks import MyModel
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
-# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-device = torch.device('cpu')
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
 
 # ploting_dict = {0.5:(-2.0, 0.5), 0.7:(-2.0,0.5), 0.9:(-2.0,0.5)}
 yb = (-2.2, 0.5)

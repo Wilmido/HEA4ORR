@@ -7,7 +7,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from utils.GeneticAlgorithm import GA
 from utils.Trainlogger import Logger
-os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
@@ -22,7 +21,7 @@ if __name__ == '__main__':
     parser.add_argument('--weight_decay', type=float, default=0.0005, help='Optimization L2 weight decay')
     parser.add_argument('--CXPB', type=float, default=0.8, help='probablity of crossperate')
     parser.add_argument('--MUTPB', type=float, default=0.1, help='probability of mutation')
-    parser.add_argument('--NGEN', type=int, default=100, help='the max iteration of generation child')
+    parser.add_argument('--NGEN', type=int, default=150, help='the max iteration of generation child')
     parser.add_argument('--popsize', type=int, default=100, help='the size of population')
     args = parser.parse_args()
 
@@ -46,8 +45,11 @@ if __name__ == '__main__':
     mylogger.logger.info(best_result.columns.values)
     history = ga.history
     
-    plt.figure()
     pd_history = pd.DataFrame(history)
+    pd_history.to_csv('result/history.csv', index=False)
+
+    plt.figure()
+    pd_history = pd.DataFrame(history)  
     pd_history.to_csv('result/history.csv', index=False)
     plt.plot(range(len(history)), history,'r-.p')
     plt.xlabel('generation')

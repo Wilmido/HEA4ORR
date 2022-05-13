@@ -56,7 +56,7 @@ python PearsonSelection.py
 
 
 The result will be like:
-<img src="HEA4ORR/misc/Pearson_value.svg" width = "600" height = "450" alt="Pearson_value" />
+<img src="https://github.com/Wilmido/HEA4ORR/blob/master/misc/Pearson_value.svg" width = "600" height = "450" alt="Pearson_value" />
 
 
 ## Get Started
@@ -74,7 +74,7 @@ Obtaining the plot of __MAE__ and __RMSE__ compared with DFT-calculated adsorpti
 # training a model for downstream tasks, you need to update the checkpoint path first! 
 python main.py
 ```
-![6_500_plot](https://user-images.githubusercontent.com/71449089/163707875-e0862e04-4405-4b16-805e-d58973e49797.svg)
+
 
 
 *Pretrained Models*
@@ -94,7 +94,10 @@ python data_augment.py
 ```
 use $x^2$、$x^3$、$\sqrt{x}$、$log(1+x)$ basic functions to nonlinear feature transformation.And use $\frac{1}{x}$ for double feature number. At last, there is 90 features in datasets.
 
-###Genetic algorithm
+### Genetic algorithm
+```
+python Feature_selection.py
+```
 
 
 ## Generate HEAs

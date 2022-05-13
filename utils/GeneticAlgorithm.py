@@ -8,13 +8,13 @@ from utils.torch_utils import get_fitness
 from joblib import Parallel, delayed
 
 
-# 首先我们构建一个叫chrom的类
+
 class Chrom:
     def __init__(self, **data):
         self.__dict__.update(data)
         self.length = len(data['data'])  # length of chromosome
 
-#$ 创建一个GA类，包含算法的所有操作
+
 class GA:
     def __init__(self, args, datas, outputs, max_feature=90):
         '''
@@ -163,21 +163,25 @@ class GA:
 
             selectpop = self.selection(self.pop, popsize)
             child = []
-            
+              
             while len(child) != popsize:  
                 # Apply crossover and mutation on the offspring
                 offspring = [selectpop.pop() for _ in range(2)]
                 
+                flag = False 
                 if np.random.random() < self.cxpb:        # crossover
                     offspring1, offspring2 = self.crossover(offspring)
+                    flag = True
                 else:
                     offspring1, offspring2 = offspring[0]['Chrom'], offspring[1]['Chrom']
                     
                 if np.random.random() < self.mutpb:        # mutation
                     offspring1 = self.mutation(offspring1)
                     offspring2 = self.mutation(offspring2)
+                    flag = True
 
-                results = Parallel(n_jobs=2)(delayed(self.evaluate)(i) for i in [offspring1.data, offspring2.data])
+                if flag:     #?  if the offsprings did change, then evaluate
+                    results = Parallel(n_jobs=2)(delayed(self.evaluate)(i) for i in [offspring1.data, offspring2.data])
                 child.append({'Chrom':offspring1, 'fitness':results[0]})
                 child.append({'Chrom':offspring2, 'fitness':results[1]})
 
