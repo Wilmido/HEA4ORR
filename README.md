@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ```
 
 ## Dataset
-I build up my dataset based on [neural-network-design-of-HEA](https://github.com/jol-jol/neural-network-design-of-HEA), you can refer this repository for more infomation.
+I build up my dataset based on [neural-network-design-of-HEA](https://github.com/jol-jol/neural-network-design-of-HEA), you can refer this repository for more information.
 
 Because of the ownership of the dataset, this repository doesn't provide HEAs dataset! Therefore, you have to collect your own data!
 
@@ -56,6 +56,7 @@ python PearsonSelection.py
 
 
 The result will be like:
+
 <img src="https://github.com/Wilmido/HEA4ORR/blob/master/misc/Pearson_value.svg" width = "600" height = "450" alt="Pearson_value" />
 
 
@@ -68,13 +69,14 @@ To train the model, you can simply use the following command, and you will get a
 python K_fold.py
 ```
 
+
 Obtaining the plot of __MAE__ and __RMSE__ compared with DFT-calculated adsorption energy
 
 ```
 # training a model for downstream tasks, you need to update the checkpoint path first! 
 python main.py
 ```
-
+<img src="https://github.com/Wilmido/HEA4ORR/blob/master/misc/6_500_plot.svg" width = "600" height = "450" alt="main" />
 
 
 *Pretrained Models*
@@ -92,20 +94,25 @@ python t_SNE.py
 ```
 python data_augment.py
 ```
-use $x^2$、$x^3$、$\sqrt{x}$、$log(1+x)$ basic functions to nonlinear feature transformation.And use $\frac{1}{x}$ for double feature number. At last, there is 90 features in datasets.
+use $x^2$、$x^3$、$\sqrt{x}$、$log(1+x)$ basic functions to nonlinear feature transformation.And $\frac{1}{x}$ for double feature number. At last, there is 90 features in datasets.
 
 ### Genetic algorithm
 ```
 python Feature_selection.py
+python SHAP.py
 ```
+After running the code, you will get a best_result.csv file which will tell you what's the best combination of 90 features.
 
+Shapley value analysis will tell you which feature effects the model prediction of *OH adsorption energy most.
+
+<img src="https://github.com/Wilmido/HEA4ORR/blob/master/misc/summary.svg" width = "600" height = "450" alt="summary" />
 
 ## Generate HEAs
 You can switch the mode to choose whether to train the regression model. The result of loss plot demonstrates that the training process of GAN is not good :(
 ```
 python Joint_training.py
 ```
-
+<img src="https://github.com/Wilmido/HEA4ORR/blob/master/misc/GAN.png" width = "600" height = "450" alt="GAN" />
 
 ## Reference
 <div id="refer-anchor-1"></div>
