@@ -27,7 +27,6 @@ if __name__ == '__main__':
     header = dl.get_header()
     num_feature = dl.get_feature_number()
 
-    # file_name = '9_700epochs_5_model.pth'
     file_name = f'{num_feature}_{args.epochs}epochs_{5}_model.pth'
     file_path = os.path.join(args.save_path, file_name)
     model = MyModel(num_feature).to(device)
@@ -64,8 +63,8 @@ if __name__ == '__main__':
     features = features[index]
 
     shap.summary_plot(shap_values=shap_values.reshape(-1,len(shap_values)),
-                    # features = features, # 所有样本的feature的值
-                    feature_names=top_header, # 特征的名字
+                    # features = features, 
+                    feature_names=top_header, 
                     plot_type = 'bar',
                     max_display=10,
                     show=False)
@@ -79,7 +78,6 @@ if __name__ == '__main__':
                 features=features[:10],
                 out_names='abosrb energy',
                 text_rotation=30,
-                # matplotlib=True, show=False).savefig(f'result/low_plot.pdf', format='pdf',bbox_inches='tight', dpi=1200)
                 matplotlib=True, show=False).savefig(f'result/Shapley/low_plot.svg',bbox_inches='tight', dpi=1200)
     
 
@@ -89,7 +87,6 @@ if __name__ == '__main__':
                 features=features[10:],
                 out_names='abosrb energy',
                 text_rotation=30,
-                # matplotlib=True, show=False).savefig(f'result/high_plot.pdf', format='pdf',bbox_inches='tight', dpi=1200)
                 matplotlib=True, show=False).savefig(f'result/Shapley/high_plot.svg',bbox_inches='tight', dpi=1200)
 
 
