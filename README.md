@@ -94,7 +94,7 @@ python data_augment.py
 ```
 use $x^2$、$x^3$、$\sqrt{x}$、$log(1+x)$ basic functions to nonlinear feature transformation.And use $\frac{1}{x}$ for double feature number. At last, there is 90 features in datasets.
 
-###Genetic algrithm
+###Genetic algorithm
 
 
 ## Generate HEAs
